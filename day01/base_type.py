@@ -35,7 +35,7 @@ def add(aint, bint):
     print(bint)
     return aint - bint
 
-# ctrl + k 提交
+# ctrl + k 提交。
 if __name__ == '__main__':
     float_demo()
     # int_demo()
