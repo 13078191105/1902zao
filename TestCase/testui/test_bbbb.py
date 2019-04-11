@@ -222,6 +222,56 @@ class TestFirstUIDemo:
         base.click("点击确定","//span[contains(text(),'取消')]")
 
 
+    def test_demo3(self,driver):
+        base = baseUI(driver)
+
+        driver.get("http://192.168.60.132/login#/home")
+        base.send_keys("输入用户名", "//input[@name='username']", "admin")
+        base.send_keys("输入密码", "//input[@name='password']", "123456")
+        # 点击登录
+        base.click("点击登录", "//span[contains(text(),'登录')]")
+        # 点击订单(//span[contains(text(),'订单')])[1]
+        base.click("点击订单", "//span[contains(text(),'订单')]")
+        # 点击订单列表(//span[contains(text(),'订单列表')]
+        base.click("点击订单列表", "//span[contains(text(),'订单列表')]")
+        # 点击订单状态//label[contains(text(),'订单状态：')]/following-sibling::div//input
+        base.click("点击订单状态", "//label[contains(text(),'订单状态：')]/following-sibling::div//input")
+        # 点击待发货//span[contains(text(),'待发货')]
+        base.click("点击代发货", "//span[contains(text(),'待发货')]")
+        # 点击查询搜索//span[contains(text(),'查询搜索')]
+        base.click("点击查询搜索", "//span[contains(text(),'查询搜索')]")
+        # 点击勾选//div/div[2]/section/div/div[3]/div/div[2]/table/thead/tr/th[1]/div/label/span/span
+        base.click("点击多选","//section//div//thead//span/span")
+        #批量发货//div[2]/section/div/div[4]/div/div[1]/input
+        base.click("批量发货","//div[2]/section/div/div[4]/div/div[1]/input")
+        # 点击批量发货//span[contains(text(),'批量发货')]
+        base.click("批量发货", "//span[contains(text(),'批量发货')]")
+        # 点击确定//span[contains(text(),'确定')]
+        base.click("点击确定", "//span[contains(text(),'确定')]")
+        # 获取有几行
+        rows = len(driver.find_elements_by_xpath("//tbody/tr"))
+        # 选择物流公司//tbody/tr[1]/td[6]//input
+        # 选择快递(//span[text()='顺丰快递'])[1]
+        # 物流单号//tbody/tr[1]/td[7]//input
+        for i in range (1,rows+1):
+            # 选择物流公司（//tbody/tr[1]/td[6]//input）
+            base.click("选择物流公司","//tbody/tr[{0}]/td[6]//input".format(i))
+            # 选择快递(//span[text()='中通顺丰快递'])[10]
+            base.click("选择快递","(//span[contains(text(),'顺丰快递')])[10]".format(i))
+            # 物流单号//tbody/tr[1]/td[7]//input
+            base.send_keys("物流单号","//tbody/tr[{0}]/td[7]//input".format(i),"1545648751454545")
+        # 点击确定//span[contains(text(),'确定')]
+        base.click("点击确定","//span[contains(text(),'确定')]")
+        # 点击确定(//span[contains(text(),'确定')])[2]
+        base.click("点击确定", "(//span[contains(text(),'确定')])[2]")
+
+        xpath = driver.find_element_by_xpath("//div[@role='alert']/p")
+        assertions = Assertions()
+        assertions.assert_in_text(xpath.text, '发货成功!')
+
+
+
+
 
 
 

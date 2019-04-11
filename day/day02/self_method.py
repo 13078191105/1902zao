@@ -35,10 +35,10 @@ def qiuhe_demo():
 
 
 if __name__ == '__main__':
-    # for i in range(5):
-    #     print('hello world')
-    #     for j in range(2):
-    #         print('耶耶耶')
+    for i in range(5):
+        print('hello world')
+        for j in range(2):
+            print('耶耶耶')
 
     # for i in range(1,10):
     #     for j in range(1,i+1):
@@ -47,17 +47,17 @@ if __name__ == '__main__':
     # cfkjb_bianli()
     # if_dom()
     # if_demo1()
-    nub = 0
-    for i in range (1,10):
-        if i%2 == 0 :
-            nub = nub+i
-    print(nub)
-    nu=0
-    for i in range(2, 10,2):
-        nu=nu+i
-    print(nu)
-
-    pass
+    # nub = 0
+    # for i in range (1,10):
+    #     if i%2 == 0 :
+    #         nub = nub+i
+    # print(nub)
+    # nu=0
+    # for i in range(2, 10,2):
+    #     nu=nu+i
+    # print(nu)
+    #
+    # pass
 
 
 
